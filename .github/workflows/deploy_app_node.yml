@@ -26,9 +26,6 @@ jobs:
           uses: hashicorp/setup-terraform@v1
         
               # Actualizar el kubeconfig de EKS para kubectl
-        - name: Update kubeconfig for EKS
-          run: |
-            aws eks --region ${{secrets.AWS_DEFAULT_REGION}} update-kubeconfig --name Grupo2-cluster
         - name: Update eks task
           run: |
             cd chat_app/terraform
