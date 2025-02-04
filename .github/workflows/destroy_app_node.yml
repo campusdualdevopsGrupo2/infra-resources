@@ -25,7 +25,7 @@ jobs:
               # Actualizar el kubeconfig de EKS para kubectl
         - name: Update eks task
           run: |
-            cd chat_app/terraform
+            cd modules/app_node
             sleep 10
             terraform init
             terraform destroy -auto-approve
