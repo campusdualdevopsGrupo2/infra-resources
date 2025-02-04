@@ -10,8 +10,7 @@ resource "aws_ecs_task_definition" "node_task" {
   container_definitions = jsonencode([
     {
       name        = "node-container"
-      image       = data.aws_ssm_parameter.container_image_flask.value
-      #image =  var.custom_flask
+      image       = "nginx:latest"
       cpu         = 128
       memory      = 512
       essential   = true
