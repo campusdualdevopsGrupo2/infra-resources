@@ -50,7 +50,7 @@ resource "aws_lb" "my_alb" {
 # Crear el Target Group
 resource "aws_lb_target_group" "ecs_targets" {
   name     = "${local.tag_value}ecs-target-group"
-  port     = 80
+  port     = 3000
   protocol = "HTTP"
   vpc_id   = local.vpc_id
   target_type="ip"
@@ -58,7 +58,7 @@ resource "aws_lb_target_group" "ecs_targets" {
   health_check {
     interval            = 45
     path                = "/"
-    port                = "80"
+    port                = "3000"
     protocol            = "HTTP"
     timeout             = 5
     healthy_threshold   = 2
