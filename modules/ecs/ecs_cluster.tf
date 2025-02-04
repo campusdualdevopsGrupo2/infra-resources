@@ -46,3 +46,13 @@ output "ecs_cluster_name" {
   value       = aws_ecs_cluster.mi_ecs.name
 }
 
+output "vpc_id" {
+  description = "El ID de la VPC donde se encuentra el ECS"
+  value       = local.vpc_id
+}
+
+output "subnets" {
+  description = "Las subnets asociadas al ECS"
+  value       = local.subnets
+}
+
