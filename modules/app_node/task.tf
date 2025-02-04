@@ -10,13 +10,13 @@ resource "aws_ecs_task_definition" "node_task" {
   container_definitions = jsonencode([
     {
       name        = "node-container"
-      image       = "nginx:latest"
+      image       = "248189943700.dkr.ecr.eu-west-2.amazonaws.com/repositorio-grupo-dos:node"
       cpu         = 128
-      memory      = 512
+      memory      = 256
       essential   = true
       portMappings = [
         {
-          containerPort = 80
+          containerPort = 3000
           hostPort      = 80
         }
       ]
