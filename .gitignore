@@ -6,4 +6,5 @@ requirements.txt
 .terragrunt-cache
 aws
 node_modules/
+package-lock.json
 
