@@ -1,15 +1,20 @@
 name: CI Workflow
-on:
-  workflow_dispatch:
 #on:
-#  push:
-#    branches:
-#      - main
-#      - develop
-#  pull_request:
-#    branches:
-#      - main
-#      - develop
+  #workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'my_images/node_app/**' 
+  pull_request:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'my_images/node_app/**' 
+  
 
 jobs:
   test:
