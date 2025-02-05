@@ -34,6 +34,8 @@ jobs:
               # Actualizar el kubeconfig de EKS para kubectl
         - name: Update eks task
           run: |
+            ls
+            pwd
             cd modules/app_node
             sleep 10
             terraform init
