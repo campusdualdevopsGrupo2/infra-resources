@@ -19,6 +19,8 @@ jobs:
     steps:
         - name: Check out repository
           uses: actions/checkout@v3
+          with:
+            repository: ${{inputs.repository}}
 
         - name: Configure AWS credentials
           uses: aws-actions/configure-aws-credentials@v4 # More information on this action can be found below in the 'AWS Credentials' section
@@ -41,3 +43,4 @@ jobs:
             sleep 10
             terraform init
             terraform apply -auto-approve
+          working-directory: ${{inputs.path_to_module}}
