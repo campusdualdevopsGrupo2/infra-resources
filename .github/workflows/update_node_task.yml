@@ -2,7 +2,6 @@ name: Update node app
 
 on:
   workflow_call:
-  #workflow_dispatch:
 
 jobs:
   update:
