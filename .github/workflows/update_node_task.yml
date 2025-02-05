@@ -35,6 +35,7 @@ jobs:
           run: |             
             ls
             pwd
+            ls $TERRAFORM_CLI_PATH 
         - name: Update eks task
           run: |
             sleep 10
