@@ -2,6 +2,13 @@ name: Update node app
 
 on:
   workflow_call:
+    inputs:
+      repository:
+        required: true
+        type: string
+      path_to_module:
+        required: true
+        type: string
     secrets:
       AWS_ACCESS_KEY_ID:
         required: true
@@ -19,6 +26,9 @@ jobs:
     steps:
         - name: Check out repository
           uses: actions/checkout@v3
+          with:
+            repository: ${{inputs.repository}}
+            path: ${{inputs.path_to_module}}
 
         - name: Configure AWS credentials
           uses: aws-actions/configure-aws-credentials@v4 # More information on this action can be found below in the 'AWS Credentials' section
@@ -42,4 +52,3 @@ jobs:
             terraform init
             terraform taint aws_ecs_task_definition.node_task
             terraform apply -auto-approve
-          working-directory: ./modules/app_node
