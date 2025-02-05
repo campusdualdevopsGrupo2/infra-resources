@@ -1,10 +1,10 @@
-name: Deploy node app
+name: Update node app
 
 on:
   workflow_call:
 
 jobs:
-  deploy:
+  update:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +28,5 @@ jobs:
             cd modules/app_node
             sleep 10
             terraform init
+            terraform taint aws-ecs-task_definition.node_task
             terraform apply -auto-approve
