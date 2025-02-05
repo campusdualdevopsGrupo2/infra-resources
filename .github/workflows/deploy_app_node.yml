@@ -20,7 +20,7 @@ jobs:
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}  # Si es necesario (solo para credenciales temporales)
 
         - name: Set up Terraform
-          uses: hashicorp/setup-terraform@v1
+          uses: hashicorp/setup-terraform@v3
         
               # Actualizar el kubeconfig de EKS para kubectl
         - name: Update eks task
