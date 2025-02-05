@@ -37,8 +37,8 @@ jobs:
             pwd
         - name: Update eks task
           run: |
-            cd modules/app_node
             sleep 10
             terraform init
             terraform taint aws_ecs_task_definition.node_task
             terraform apply -auto-approve
+          working-directory: ./modules/app_node
