@@ -11,6 +11,13 @@ resource "aws_security_group" "ecs_service_sg" {
     security_groups = [aws_security_group.alb_sg.id]  # Permite tráfico desde el ALB
     description = "Allow HTTP traffic from ALB"
   }
+  ingress {
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    security_groups = [aws_security_group.alb_sg.id]  # Permite tráfico desde el ALB
+    description = "Allow HTTP traffic from ALB"
+  }
 
 
   # Regla de salida (permitir todo el tráfico de salida)
