@@ -30,6 +30,7 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
+        working-directory: ./my_images/node_app
         run: npm install
 
       - name: Ejecutar tests

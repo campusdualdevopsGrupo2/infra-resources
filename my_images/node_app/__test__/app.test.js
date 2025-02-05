@@ -12,4 +12,3 @@ describe('GET /', () => {
     expect(response.text).toContain('<h1>Hola Mundo</h1>');
   });
 });
-
