@@ -2,7 +2,7 @@
 node_modules/
 
 # Excluir la carpeta de test
-test/
+__test__/
 
 # Puedes agregar otros archivos o directorios que no quieras incluir
 .DS_Store
