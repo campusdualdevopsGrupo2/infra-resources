@@ -5,4 +5,5 @@ update_keys.py
 requirements.txt
 .terragrunt-cache
 aws
+node_modules/
 

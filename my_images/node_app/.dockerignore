@@ -1,0 +1,9 @@
+# Excluir node_modules
+node_modules/
+
+# Excluir la carpeta de test
+test/
+
+# Puedes agregar otros archivos o directorios que no quieras incluir
+.DS_Store
+*.log
