@@ -12,12 +12,14 @@ resource "aws_iam_role" "github_actions_oidc_role" {
         Action    = "sts:AssumeRoleWithWebIdentity",
         Condition = {
           StringEquals = {
-            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com",
-            # Se permiten 3 repositorios (nota: en JSON no se pueden tener 3 claves iguales, por lo que en la práctica
-            # habría que estructurar la condición de forma diferente, por ejemplo utilizando una lista o condiciones OR).
-            "token.actions.githubusercontent.com:sub" = "repo:campusdualdevopsGrupo2/infra-resources:ref:refs/heads/main",
-            "token.actions.githubusercontent.com:sub" = "repo:campusdualdevopsGrupo2/app-code:ref:refs/heads/main",
-            "token.actions.githubusercontent.com:sub" = "repo:campusdualdevopsGrupo2/cloud-resources:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+          },
+          "ForAnyValue:StringEquals": {
+            "token.actions.githubusercontent.com:sub": [
+              "repo:campusdualdevopsGrupo2/infra-resources:ref:refs/heads/main",
+              "repo:campusdualdevopsGrupo2/app-code:ref:refs/heads/main",
+              "repo:campusdualdevopsGrupo2/cloud-resources:ref:refs/heads/main"
+            ]
           }
         }
       }
@@ -54,9 +56,10 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_policy_attachment"
 
 terraform {
   backend "s3" {
-    bucket = "proyecto-devops-grupo-dos"          # Nombre de tu bucket S3
-    key    = "iam/terraform.tfstate"
-    region = "eu-west-2"                           # Región donde está tu bucket S3
-    encrypt = true                                   # Habilita el cifrado en el bucket
+    bucket  = "proyecto-devops-grupo-dos"          # Nombre de tu bucket S3 para almacenar el estado
+    key     = "iam/terraform.tfstate"
+    region  = "eu-west-2"                           # Región donde está tu bucket S3
+    encrypt = true                                  # Habilita el cifrado en el bucket
   }
 }
+
