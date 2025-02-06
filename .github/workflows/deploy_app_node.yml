@@ -39,7 +39,6 @@ jobs:
             pwd
         - name: Update eks task
           run: |
-            cd modules/app_node
             sleep 10
             terraform init
             terraform apply -auto-approve
