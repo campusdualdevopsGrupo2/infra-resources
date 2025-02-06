@@ -29,6 +29,14 @@ resource "aws_s3_bucket_lifecycle_configuration" "example" {
   }
 }
 
+resource "aws_s3_bucket_website_configuration" "example" {
+  bucket = aws_s3_bucket.my_bucket.id
+
+  index_document {
+    suffix = "super.html"
+  }
+
+}
 terraform {
   backend "s3" {
     bucket = "proyecto-devops-grupo-dos"          # Nombre de tu bucket S3
