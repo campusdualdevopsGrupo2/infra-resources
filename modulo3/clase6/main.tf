@@ -13,6 +13,10 @@ module "ecs"{
     source= "git@github.com:campusdualdevopsGrupo2/cloud-resources.git//fixed_resources/ecs"
 }
 
+module "ecr"{
+    source= "git@github.com:campusdualdevopsGrupo2/cloud-resources.git//fixed_resources/ecr"
+}
+
 module "ecs_recursos"{
     source= "git@github.com:campusdualdevopsGrupo2/cloud-resources.git//modulo3/clase6/ecs_resources"
     cluster_id=module.ecs.ecs_cluster_id
