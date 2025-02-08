@@ -1,16 +1,7 @@
-name: Deploy node app
+name: Destroy node app
 
 on:
-  workflow_call:
-    secrets:
-      AWS_ACCESS_KEY_ID:
-        required: true
-      AWS_SECRET_ACCESS_KEY:
-        required: true
-      AWS_SESSION_TOKEN:
-        required: true
-      AWS_DEFAULT_REGION:
-        required: true
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -19,8 +10,6 @@ jobs:
     steps:
         - name: Check out repository
           uses: actions/checkout@v3
-          with:
-            repository: ${{inputs.repository}}
 
         - name: Configure AWS credentials
           uses: aws-actions/configure-aws-credentials@v4 # More information on this action can be found below in the 'AWS Credentials' section
@@ -28,18 +17,15 @@ jobs:
             aws-region: ${{secrets.AWS_DEFAULT_REGION}}
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}   # Referencia al secreto
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}   # Referencia al secreto
-            aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}  # Si es necesario (solo para credenciales temporales)
+            #aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}  # Si es necesario (solo para credenciales temporales)
 
         - name: Set up Terraform
-          uses: hashicorp/setup-terraform@v3
+          uses: hashicorp/setup-terraform@v1
         
-        - name: Debug
-          run: |             
-            ls
-            pwd
+              # Actualizar el kubeconfig de EKS para kubectl
         - name: Update eks task
           run: |
+            cd modules/app_node
             sleep 10
             terraform init
-            terraform apply -auto-approve
-          working-directory: ${{inputs.path_to_module}}
+            terraform destroy -auto-approve
