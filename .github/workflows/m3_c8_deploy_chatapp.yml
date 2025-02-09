@@ -37,7 +37,7 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}   # Referencia al secreto
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}  # Si es necesario (solo para credenciales temporales)
         
-            - name: Set up SSH for GitHub
+        - name: Set up SSH for GitHub
           run: |
               mkdir -p ~/.ssh
               echo "${{ secrets.GIT_SSH_KEY }}" > ~/.ssh/id_rsa
