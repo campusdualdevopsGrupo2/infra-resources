@@ -1,5 +1,5 @@
 terraform {
-  source = "/home/jorge/Documentos/Bootcamp/Nuevo Grupo/cloud-resources/modulo3/clase4"
+  source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//modulo3/clase4?ref=main"
 }
 
 inputs = {
