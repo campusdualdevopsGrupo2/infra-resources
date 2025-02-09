@@ -36,6 +36,14 @@ jobs:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}   # Referencia al secreto
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}   # Referencia al secreto
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}  # Si es necesario (solo para credenciales temporales)
+        
+            - name: Set up SSH for GitHub
+          run: |
+              mkdir -p ~/.ssh
+              echo "${{ secrets.GIT_SSH_KEY }}" > ~/.ssh/id_rsa
+              chmod 600 ~/.ssh/id_rsa
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+            # Esto configura la clave SSH para acceder a GitHub y agrega github.com al archivo known_hosts
 
         - name: Set up Terraform
           uses: hashicorp/setup-terraform@v3
