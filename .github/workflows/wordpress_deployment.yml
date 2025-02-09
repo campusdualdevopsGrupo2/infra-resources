@@ -11,6 +11,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install Terraform
+        run: |
+          curl -LO https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_linux_amd64.zip
+          unzip terraform_1.0.0_linux_amd64.zip
+          sudo mv terraform /usr/local/bin/
+
       - name: Install Terragrunt
         run: |
           curl -sLo terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.42.8/terragrunt_linux_amd64
@@ -41,3 +47,4 @@ jobs:
           terragrunt init
           terragrunt plan -out=tfplan
           terragrunt apply -auto-approve tfplan
+
