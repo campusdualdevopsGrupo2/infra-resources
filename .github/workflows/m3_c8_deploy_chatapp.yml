@@ -39,15 +39,31 @@ jobs:
 
         - name: Set up Terraform
           uses: hashicorp/setup-terraform@v3
+
+        - name: Check terragrunt HCL
+          uses: gruntwork-io/terragrunt-action@v2
+          with:
+            tg_version: "0.72.0"
+            tg_dir: ${{inputs.path_to_module}}
+            tg_command: 'run-all init'
         
               # Actualizar el kubeconfig de EKS para kubectl
         - name: Update kubeconfig for EKS
           run: |
             aws eks --region eu-west-2 update-kubeconfig --name mi-cluster-Grupo2
-        - name: Update eks task
-          run: |
-            sleep 10
-            terraform init
-            terraform destroy -auto-approve -target=module.chat_app_with_eks
-            terraform apply -auto-approve
-          working-directory: ${{inputs.path_to_module}}
+            
+        - name: Check terragrunt HCL
+          uses: gruntwork-io/terragrunt-action@v2
+          with:
+            tg_version: "0.72.0"
+            tg_dir: ${{inputs.path_to_module}}/eks_resources
+            tg_command: 'destroy -auto-approve -target=module.chat_app_with_eks --terragrunt-non-interactive'
+
+
+        - name: Check terragrunt HCL
+          uses: gruntwork-io/terragrunt-action@v2
+          with:
+            tg_version: "0.72.0"
+            tg_dir: ${{inputs.path_to_module}}
+            tg_command: 'apply -auto-approve -target=module.chat_app_with_eks --terragrunt-non-interactive'
+        
