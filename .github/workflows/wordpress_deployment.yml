@@ -48,7 +48,7 @@ jobs:
           terragrunt plan -out=tfplan
           terragrunt apply -auto-approve tfplan
 
-      - name: Terragrunt Destroy (us-east-1)
+      - name: Terragrunt Destroy (eu-west-3)
         if: success()
         env:
           TF_VAR_region: "eu-west-3"
