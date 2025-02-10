@@ -26,7 +26,7 @@ terraform {
 dependency "eks" {
   config_path = "../eks"  # Ruta relativa al módulo VPC
   mock_outputs = {#outputs falsos para que no falle de momento
-    eks_output = "mock-eks-output"
+    cluster_name = "mock-eks-output"
   }
 }
 inputs = {
