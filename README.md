@@ -2,68 +2,92 @@
 
 Este repositorio contiene los recursos de infraestructura para la gestión y despliegue de diversas aplicaciones y servicios en la nube.
 
-## 📂 Estructura del Repositorio
+📂 Estructura del Repositorio
 
-- `.github/workflows/` → Contiene los workflows de GitHub Actions para la automatización del CI/CD.
-- `modules---desfasados/rds/` → Módulos obsoletos relacionados con RDS.
-- `modulo2/` → Configuración y cambios en `terragrunt.hcl` y despliegue de WordPress.
-- `modulo3/` → Actualización de workflows.
-- `modulo4/clase4/bucket-s3-con-politica-de-retencion/` → Configuración de un bucket S3 con una política de retención.
-- `.gitignore` → Archivo de configuración para ignorar archivos innecesarios en Git.
-- `README.md` → Documentación del repositorio.
+.github/workflows/ → Contiene los workflows de GitHub Actions para la automatización del CI/CD.
 
-## 🚀 Descripción General
+g2_cdt_m2_c4_ansible_ansible/ec2_wordpress_ansible/ → Configuración de Ansible para desplegar WordPress en EC2.
 
-Este repositorio forma parte del trabajo del equipo **campusdualdevopsGrupo2**, donde se desarrollan módulos de infraestructura utilizando herramientas como Terraform, Terragrunt, AWS y GitHub Actions.
+g2_cdt_m2_c8_terragrunt_terragrunt_wordpress/ → Configuración de Terragrunt para el despliegue de WordPress.
 
-## 📌 Últimos Cambios
+g2_cdt_m3_c2_kubernetes_kubernetes/ → Configuración de Kubernetes.
 
-- Se realizaron actualizaciones en los workflows de GitHub Actions.
-- Modificaciones en `terragrunt.hcl` y despliegue de WordPress en `modulo2`.
-- Se agregaron políticas de retención a un bucket S3 en `modulo4`.
-- Se agregó un `.gitignore` para optimizar el repositorio.
+g2_cdt_m3_c3_eks_modulo_eks/modulo_eks/ → Configuración de EKS.
 
-## ⚙️ Requisitos
+g2_cdt_m3_c4_ecr_modulo_ecr/ → Configuración de Amazon ECR.
+
+g2_cdt_m3_c5_ecs_aws_ecs/ → Configuración de Amazon ECS.
+
+g2_cdt_m3_c6_ecs_conf_ecs/ → Configuración adicional para ECS.
+
+g2_cdt_m3_c7_eks_kubernetes_manifest/ → Manifiestos de Kubernetes para EKS.
+
+g2_cdt_m3_c8_project_chat_app/chat_app/ → Aplicación de chat en tiempo real.
+
+g2_cdt_m4_c4_bucket-s3-con-politica-de-retencion/bucket-s3-con-politica-de-retencion/ → Configuración de un bucket S3 con una política de retención.
+
+.gitignore → Archivo de configuración para ignorar archivos innecesarios en Git.
+
+README.md → Documentación del repositorio.
+
+🚀 Descripción General
+
+Este repositorio forma parte del trabajo del equipo campusdualdevopsGrupo2, donde se desarrollan módulos de infraestructura utilizando herramientas como Terraform, Terragrunt, Ansible, Kubernetes, AWS y GitHub Actions.
+
+📌 Últimos Cambios
+
+Se realizaron actualizaciones en los workflows de GitHub Actions.
+
+Se modificaron los nombres de los módulos para mayor claridad.
+
+Se agregaron políticas de retención a un bucket S3 en g2_cdt_m4_c4_bucket-s3-con-politica-de-retencion.
+
+Se agregó un .gitignore para optimizar el repositorio.
+
+⚙️ Requisitos
 
 Para utilizar este repositorio, asegúrate de tener instalados:
 
-- [Terraform](https://www.terraform.io/downloads)
-- [Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/install/)
-- [AWS CLI](https://aws.amazon.com/cli/)
-- [Git](https://git-scm.com/downloads)
+Terraform
 
-## 📖 Uso
+Terragrunt
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/campusdualdevopsGrupo2/infra-resources.git
-   ```
-2. Accede al directorio del módulo que deseas utilizar:
-   ```bash
-   cd modulo2
-   ```
-3. Aplica la configuración con Terraform o Terragrunt:
-   ```bash
-   terragrunt run-all apply
-   ```
+Ansible
 
-## 🛠 Contribución
+AWS CLI
+
+Git
+
+📖 Uso
+
+Clona el repositorio:
+
+git clone https://github.com/campusdualdevopsGrupo2/infra-resources.git
+
+Accede al directorio del módulo que deseas utilizar:
+
+cd g2_cdt_m3_c3_eks_modulo_eks
+
+Aplica la configuración con Terraform o Terragrunt:
+
+terragrunt run-all apply
+
+🛠 Contribución
 
 Si deseas contribuir a este proyecto, sigue estos pasos:
 
-1. Crea un fork del repositorio.
-2. Crea una nueva rama con un nombre descriptivo.
-3. Realiza tus cambios y realiza un commit.
-4. Abre un Pull Request para revisión.
+Crea un fork del repositorio.
 
-## 📜 Licencia
+Crea una nueva rama con un nombre descriptivo.
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+Realiza tus cambios y realiza un commit.
 
----
+Abre un Pull Request para revisión.
 
-✉️ Para dudas o sugerencias, contacta con los administradores del repositorio o abre un issue.
+📜 Licencia
 
-como se escribe en tipo readme.md, en github àso a paso, por favor
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+
 
 
