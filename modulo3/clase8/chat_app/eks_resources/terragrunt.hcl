@@ -29,5 +29,7 @@ dependency "eks" {
     eks_output = "mock-eks-output"
   }
 }
-
+inputs = {
+  cluster_name=dependency.eks.outputs.cluster_name
+}
 
