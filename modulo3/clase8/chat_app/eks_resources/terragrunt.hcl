@@ -20,7 +20,8 @@ remote_state {
 }
 
 terraform {
-  source= "git@github.com:campusdualdevopsGrupo2/cloud-resources.git//modulo3/clase8/chat_app/terraform"
+  source = "https://github.com/campusdualdevopsGrupo2/cloud-resources.git//modulo3/clase8/chat_app/terraform"
+
 }
 dependency "eks" {
   config_path = "../eks"  # Ruta relativa al módulo VPC

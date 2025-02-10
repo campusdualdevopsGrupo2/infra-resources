@@ -20,7 +20,7 @@ remote_state {
 }
 
 terraform {
-  source= "git@github.com:campusdualdevopsGrupo2/cloud-resources.git//fixed_resources/eks"
+  source= "https://github.com/campusdualdevopsGrupo2/cloud-resources.git//fixed_resources/eks"
 }
 
 
