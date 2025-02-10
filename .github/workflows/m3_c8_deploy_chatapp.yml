@@ -69,7 +69,7 @@ jobs:
             tg_version: "0.72.0"
             tf_version: "1.10.4"
             tg_dir: ${{inputs.path_to_module}}/eks_resources
-            tg_command: 'destroy -auto-approve -target=module.chat_app_with_eks --terragrunt-non-interactive'
+            tg_command: 'destroy -target=module.chat_app_with_eks --terragrunt-non-interactive'
 
 
         - name: Check terragrunt HCL
@@ -78,5 +78,5 @@ jobs:
             tg_version: "0.72.0"
             tf_version: "1.10.4"
             tg_dir: ${{inputs.path_to_module}}/eks_resources
-            tg_command: 'apply -auto-approve --terragrunt-non-interactive'
+            tg_command: 'apply --terragrunt-non-interactive'
         
