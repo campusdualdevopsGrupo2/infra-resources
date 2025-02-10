@@ -29,8 +29,11 @@ jobs:
         - name: Update kubeconfig for EKS
           run: |
             aws eks --region eu-west-2 update-kubeconfig --name mi-cluster-Grupo2
-        - name: Update eks task
-          run: |
-            cd modulo3/clase8/chat_app
-            terraform init
-            terraform destroy -auto-approve -target=module.chat_app_with_eks
+            
+        - name: Check terragrunt HCL
+          uses: gruntwork-io/terragrunt-action@v2
+          with:
+              tg_version: "0.72.0"
+              tf_version: "1.10.4"
+              tg_dir: ${{inputs.path_to_module}}/eks_resources
+              tg_command: 'destroy -auto-approve  --terragrunt-non-interactive'

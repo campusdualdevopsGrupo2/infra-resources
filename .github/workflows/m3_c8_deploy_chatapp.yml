@@ -37,7 +37,7 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}   # Referencia al secreto
             aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}  # Si es necesario (solo para credenciales temporales)
         
-        - name: Set up SSH for GitHub
+        - name: Set up SSH for GitHub #esto no funciona y como ahora se usa https para terragrunt tampoco seria necesario
           run: |
               mkdir -p ~/.ssh
               echo "${{ secrets.GIT_SSH_KEY }}" > ~/.ssh/id_rsa
@@ -78,5 +78,5 @@ jobs:
             tg_version: "0.72.0"
             tf_version: "1.10.4"
             tg_dir: ${{inputs.path_to_module}}
-            tg_command: 'apply -auto-approve -target=module.chat_app_with_eks --terragrunt-non-interactive'
+            tg_command: 'apply -auto-approve --terragrunt-non-interactive'
         
