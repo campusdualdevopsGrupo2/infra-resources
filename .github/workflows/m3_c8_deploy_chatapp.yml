@@ -63,7 +63,7 @@ jobs:
           run: |
             aws eks --region eu-west-2 update-kubeconfig --name mi-cluster-Grupo2
 
-        - name: Check terragrunt HCL
+        - name: Destroy HCL
           uses: gruntwork-io/terragrunt-action@v2
           with:
             tg_version: "0.72.0"
@@ -72,11 +72,11 @@ jobs:
             tg_command: 'destroy -target=module.chat_app_with_eks --terragrunt-non-interactive'
 
 
-        - name: Check terragrunt HCL
+        - name: Apply HCL
           uses: gruntwork-io/terragrunt-action@v2
           with:
             tg_version: "0.72.0"
             tf_version: "1.10.4"
-            tg_dir: ${{inputs.path_to_module}}/eks_resources
-            tg_command: 'apply --terragrunt-non-interactive'
+            tg_dir: ${{inputs.path_to_module}}
+            tg_command: 'run-all apply --terragrunt-non-interactive'
         
