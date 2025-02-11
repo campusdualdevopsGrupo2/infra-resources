@@ -21,18 +21,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
 
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.10.4"
-
-      - name: Install Terragrunt
-        run: |
-          curl -sLo terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.72.0/terragrunt_linux_amd64
-          chmod +x terragrunt
-          sudo mv terragrunt /usr/local/bin/
-          terragrunt --version
-
       - name: Determine Path
         id: path
         run: echo "::set-output name=path::$(echo ${{ github.event.head_commit.message }} | grep -oP '(?<=path:)[^ ]*')"
