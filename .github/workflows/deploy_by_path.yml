@@ -1,0 +1,52 @@
+name: Terragrunt Deployment
+
+on:
+  push:
+    paths:
+      - 'infra-resources/**'
+
+jobs:
+  terragrunt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Terraform
+        run: |
+          curl -LO https://releases.hashicorp.com/terraform/1.10.5/terraform_1.10.5_linux_amd64.zip
+          unzip terraform_1.10.5_linux_amd64.zip
+          sudo mv terraform /usr/local/bin/
+          terraform --version
+
+      - name: Install Terragrunt
+        run: |
+          curl -sLo terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v0.67.3/terragrunt_linux_amd64
+          chmod +x terragrunt
+          sudo mv terragrunt /usr/local/bin/
+          terragrunt --version
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-3  
+
+      - name: Determine Path
+        id: path
+        run: echo "::set-output name=path::$(echo ${{ github.event.head_commit.message }} | grep -oP '(?<=path:)[^ ]*')"
+
+      - name: Terragrunt Init, Plan & Apply 
+        run: |
+          cd ${{ steps.path.outputs.path }}
+          terragrunt init
+          terragrunt plan -out=tfplan
+          terragrunt apply -auto-approve tfplan
+
+      - name: Terragrunt Destroy 
+        if: success()
+        run: |
+          cd ${{ steps.path.outputs.path }}
+          terragrunt destroy -auto-approve
