@@ -1,4 +1,4 @@
-# Infra Resources Borrador
+# Infra Resources
 
 
 Este repositorio contiene la infraestructura necesaria para la automatización y despliegue de recursos en AWS utilizando herramientas como Terraform, Ansible y Kubernetes.
