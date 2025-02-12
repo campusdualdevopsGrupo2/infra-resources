@@ -3,7 +3,7 @@ dependency "s3_bucket" {
 }
 
 terraform {
-  source = "/home/jorge/Documentos/Bootcamp/Nuevo Grupo/cloud-resources/g2-cdt-prod-función-lambda-para-s3"
+  source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//g2-cdt-prod-función-lambda-para-s3?ref=main"
 }
 
 inputs = {

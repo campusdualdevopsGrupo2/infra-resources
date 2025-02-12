@@ -1,5 +1,5 @@
 terraform {
-  source = "/home/jorge/Documentos/Bootcamp/Nuevo Grupo/cloud-resources/g2-cdt-prod-s3-simple"
+  source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//g2-cdt-prod-s3?ref=main"
 }
 
 inputs = {

@@ -1,5 +1,5 @@
 terraform {
-    source = "/home/jorge/Documentos/Bootcamp/Nuevo Grupo/cloud-resources/g2-cdt-prod-sg"
+    source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//g2-cdt-prod-sg?ref=main"
   }
 
 
