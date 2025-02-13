@@ -7,7 +7,7 @@ dependency "sg" {
 }
 
 terraform {
-  source = "/home/jorge/Documentos/Bootcamp/Nuevo Grupo/cloud-resources/g2_cdt_prod_ec2"
+  source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//g2-cdt-prod-ec2?ref=main"
 }
 
 inputs = {

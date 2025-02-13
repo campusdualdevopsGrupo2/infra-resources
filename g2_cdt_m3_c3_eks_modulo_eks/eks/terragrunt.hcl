@@ -1,6 +1,6 @@
 # /ruta/a/tu/proyecto/entorno/terragrunt.hcl
 terraform {
-  source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//modulo3/clase2?ref=main"
+  source = "git::https://github.com/campusdualdevopsGrupo2/cloud-resources.git//g2-cdt-prod-eks?ref=main"
 }
 
 inputs = {
@@ -22,5 +22,3 @@ inputs = {
     }
   }
 }
-
-
